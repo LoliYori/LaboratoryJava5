@@ -49,7 +49,7 @@ public class Main {
         System.out.println("Мурзик мяукал " + countDecorator2.getMeowCount() + " раз"); // Выводим количество мяуканий "Мурзика"
 
         // Задание 3: Формирование списка L
-        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5); // Список 1
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 6); // Список 1
         List<Integer> list2 = Arrays.asList(3, 4, 5, 6, 7); // Список 2
         List<Integer> intersection = ListProcessor.intersection(list1, list2); // Находим пересечение двух списков
         System.out.println("Пересечение списков: " + intersection); // Выводим пересечение списков
