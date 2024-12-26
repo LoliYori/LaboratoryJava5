@@ -7,104 +7,102 @@ public class Main {
     public static void main(String[] args) {
 
         // Задание 1: Работа с дробями
-        FractionInterface fraction = FractionFactory.createFraction(4, 5); // Создаем дробь 4/5
-        FractionInterface fraction2 = FractionFactory.createFraction(1, 3); // Создаем дробь 1/3
-        System.out.println("Дробь 1: " + fraction); // Выводим дробь 1
-        System.out.println("Дробь 2: " + fraction2); // Выводим дробь 2
-        System.out.println("Вещественное значение дроби 1: " + fraction.toDouble()); // Получаем вещественное значение дроби 1
+        FractionInterface fraction = FractionFactory.createFraction(4, 5); // Дробь 4/5
+        FractionInterface fraction2 = FractionFactory.createFraction(1, 3); // Дробь 1/3
+        System.out.println("Дробь 1: " + fraction);
+        System.out.println("Дробь 2: " + fraction2);
+        System.out.println("Вещественное значение дроби 1: " + fraction.toDouble()); // Вещественное значение дроби 1
 
-        System.out.println("Дробь 1 равна дроби 2: " + fraction.equals(fraction2)); // Сравниваем дробь 1 и дробь 2
+        System.out.println("Дробь 1 равна дроби 2: " + fraction.equals(fraction2)); // Сравниваем 1 и 2
 
-        fraction.setNumerator(1); // Устанавливаем числитель дроби 1 в 1
-        System.out.println("Изменённая дробь 1: " + fraction); // Выводим измененную дробь 1
-        System.out.println("Вещественное значение измененной дроби 1: " + fraction.toDouble()); // Получаем вещественное значение измененной дроби 1
+        fraction.setNumerator(1); // Числитель дроби первого в 1
+        System.out.println("Изменённая дробь 1: " + fraction);
+        System.out.println("Вещественное значение измененной дроби 1: " + fraction.toDouble()); // Вещественное значение измененной дроби 1
 
-        fraction.setDenominator(3); // Устанавливаем знаменатель дроби 1 в 3
-        System.out.println("Изменённая дробь 1: " + fraction); // Выводим измененную дробь 1
-        System.out.println("Вещественное значение измененной дроби 1: " + fraction.toDouble()); // Получаем вещественное значение измененной дроби 1
+        fraction.setDenominator(3); // Знаменатель дроби первого в 3
+        System.out.println("Изменённая дробь 1: " + fraction);
+        System.out.println("Вещественное значение измененной дроби 1: " + fraction.toDouble()); // Вещественное значение измененной дроби 1
 
-        System.out.println("Дробь 1 равна дроби 2: " + fraction.equals(fraction2)); // Повторно сравниваем дробь 1 и дробь 2
+        System.out.println("Дробь 1 равна дроби 2: " + fraction.equals(fraction2)); // Повторно сравнение
 
         // Задание 2: Работа с котами
-        Meowable cat1 = new Cat("Барсик"); // Создаем объект кота "Барсик"
-        Meowable cat2 = new Cat("Мурзик"); // Создаем объект кота "Мурзик"
+        Meowable cat1 = new Cat("Барсик"); 
+        Meowable cat2 = new Cat("Мурзик");
 
         // Оборачиваем котов в декораторы для подсчета мяуканий
-        Meowable decoratedCat1 = new MeowCountDecorator(cat1); // Оборачиваем "Барсика"
-        Meowable decoratedCat2 = new MeowCountDecorator(cat2); // Оборачиваем "Мурзика"
+        Meowable decoratedCat1 = new MeowCountDecorator(cat1); 
+        Meowable decoratedCat2 = new MeowCountDecorator(cat2);
 
         // Создаем список котов
         List<Meowable> cats = new ArrayList<>();
-        cats.add(decoratedCat1); // Добавляем "Барсика"
-        cats.add(decoratedCat2); // Добавляем "Мурзика"
+        cats.add(decoratedCat1); 
+        cats.add(decoratedCat2);
 
         // Передаем список котов в метод meowsCare
-        Funs.meowsCare(cats); // Кормим котов и они мяукают
+        Funs.meowsCare(cats); 
 
         // Выводим количество мяуканий каждого кота
         MeowCountDecorator countDecorator1 = (MeowCountDecorator) decoratedCat1; // Получаем декоратор для "Барсика"
         MeowCountDecorator countDecorator2 = (MeowCountDecorator) decoratedCat2; // Получаем декоратор для "Мурзика"
 
-        System.out.println("Барсик мяукал " + countDecorator1.getMeowCount() + " раз"); // Выводим количество мяуканий "Барсика"
-        System.out.println("Мурзик мяукал " + countDecorator2.getMeowCount() + " раз"); // Выводим количество мяуканий "Мурзика"
+        System.out.println("Барсик мяукал " + countDecorator1.getMeowCount() + " раз"); 
+        System.out.println("Мурзик мяукал " + countDecorator2.getMeowCount() + " раз");
 
         // Задание 3: Формирование списка L
         List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 6); // Список 1
         List<Integer> list2 = Arrays.asList(3, 4, 5, 6, 7); // Список 2
-        List<Integer> intersection = ListProcessor.intersection(list1, list2); // Находим пересечение двух списков
+        List<Integer> intersection = ListProcessor.intersection(list1, list2);
         System.out.println("Пересечение списков: " + intersection); // Выводим пересечение списков
 
         // Задание 4
         try {
-            // Анализируем файл с ценами на бензин
+            // Анализ файл
             Map<Integer, Long> result = GasStationAnalyzer.analyze("gas_prices.txt"); 
             System.out.println("Результаты анализа цен на бензин:");
-            // Выводим марки и количество АЗС
+            // Вывод марки и количество АЗС
             result.forEach((grade, count) -> System.out.println("Марка: " + grade + ", Количество АЗС: " + count));
         } catch (IOException e) {
-            System.err.println("Ошибка при анализе цен на бензин: " + e.getMessage()); // Обрабатываем ошибку при чтении файла
+            System.err.println("Ошибка при анализе цен на бензин: " + e.getMessage());
         }
 
         // ЗАДАНИЕ 5
         try {
-            // Читаем текст из файла
             String text = Files.readString(Paths.get("text.txt"));
 
-            // Оставляем только русские буквы и переводим их в нижний регистр
+            // Оставляем только русские буквы
             Set<Character> uniqueLetters = new HashSet<>();
             for (char c : text.toLowerCase().toCharArray()) { 
                 if (Character.isLetter(c) && (c >= 'а' && c <= 'я')) { 
-                    uniqueLetters.add(c); // Добавляем уникальные буквы в множество
+                    uniqueLetters.add(c); // Добавление уникальных букв
                 }
             }
 
-            // Выводим количество уникальных букв
             System.out.println("Количество уникальных букв в тексте: " + uniqueLetters.size());
         } catch (IOException e) {
-            System.err.println("Ошибка при чтении файла: " + e.getMessage()); // Обрабатываем ошибку чтения файла
+            System.err.println("Ошибка при чтении файла: " + e.getMessage()); 
         }
 
         // ЗАДАНИЕ 6: Построение очереди из списка
         List<Integer> inputList = Arrays.asList(1, 2, 3); // Исходный список
-        Queue<Integer> queue = buildQueue(inputList); // Формируем очередь
-        System.out.println("Построенная очередь: " + queue); // Выводим очередь
+        Queue<Integer> queue = buildQueue(inputList); // Очередь
+        System.out.println("Построенная очередь: " + queue)
 
         // ЗАДАНИЕ 7.1
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите количество точек"); // Просим ввести количество точек
-        int N = scanner.nextInt(); // Читаем количество точек
-        scanner.nextLine();  // Переход на новую строку после ввода чисел
+        System.out.println("Введите количество точек");
+        int N = scanner.nextInt();
+        scanner.nextLine();
 
         Map<String, Integer> athleteScores = new HashMap<>();
-        List<Point> points = new ArrayList<>(); // Список точек
+        List<Point> points = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
             System.out.println("Введите X для точки " + (i + 1) + ":"); 
-            int X = scanner.nextInt(); // Читаем X
+            int X = scanner.nextInt();
             System.out.println("Введите Y для точки " + (i + 1) + ":"); 
-            int Y = scanner.nextInt(); // Читаем Y
-            points.add(new Point(X, Y)); // Добавляем точку в список
+            int Y = scanner.nextInt();
+            points.add(new Point(X, Y));
         }
 
         // Преобразование и обработка данных с использованием Stream API
@@ -116,7 +114,6 @@ public class Main {
                         .collect(Collectors.toList()) // Собираем результат в список
         );
 
-        // Вывод результата
         System.out.println(polyline); 
         scanner.close();
 
@@ -147,7 +144,6 @@ public class Main {
                             Collectors.mapping(Map.Entry::getKey, Collectors.toList()) // Собираем имена в список
                     ));
 
-            // Выводим результат
             System.out.println(groupedPeople);
         } catch (IOException e) {
             e.printStackTrace();
@@ -157,9 +153,9 @@ public class Main {
     // Построение очереди из списка
     public static Queue<Integer> buildQueue(List<Integer> list) {
         Queue<Integer> queue = new LinkedList<>();
-        queue.addAll(list); // Добавляем элементы списка в очередь
+        queue.addAll(list); 
         for (int i = list.size() - 1; i >= 0; i--) {
-            queue.add(list.get(i)); // Добавляем элементы в обратном порядке
+            queue.add(list.get(i));
         }
         return queue;
     }
