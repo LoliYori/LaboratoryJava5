@@ -12,8 +12,8 @@ public class MeowCountDecorator implements Meowable {
     // Переопределение метода meow
     @Override
     public void meow() {
-        cat.meow(); // Вызываем метод meow у декорируемого объекта
-        meowCount++; // Увеличиваем счетчик
+        cat.meow();
+        meowCount++; 
     }
 
     // Метод для получения количества вызовов метода meow
